@@ -1,0 +1,12 @@
+﻿[
+  {
+    "key": 1,
+    "username": "Root",
+    "password": "admin123"
+  },
+  {
+    "key": 2,
+    "username": "Admin",
+    "password": "admin124"
+  }
+]
