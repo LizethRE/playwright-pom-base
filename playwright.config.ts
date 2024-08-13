@@ -56,7 +56,7 @@ export default defineConfig({
                 contextOptions: {storageState: '.auth/session.json'}
             },
             /* Skip if .auth/ directory exists. */
-            //dependencies: ['setup']
+            dependencies: ['setup']
         },
 
         /*{
