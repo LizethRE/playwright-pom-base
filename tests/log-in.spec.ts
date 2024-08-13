@@ -9,6 +9,9 @@ import incompleteUsers from '../test-data/incomplete_users.json';
 let logInPage: LogInPage;
 
 test.describe('Inicio de Sesión en OrangeHRM', () => {
+    //Skip auth setup
+    test.use({storageState: {cookies: [], origins: []}})
+
     test.beforeEach(async ({page}) => {
         logInPage = new LogInPage(page);
         await test.step('Navega a la pagina Inicio de Sesión', async () => {

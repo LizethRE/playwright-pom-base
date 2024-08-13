@@ -12,6 +12,15 @@ import {defineConfig, devices} from '@playwright/test';
  */
 export default defineConfig({
     testDir: './tests',
+    /* Maximum time one test can run for. */
+    timeout: 60 * 1000,
+    expect: {
+        /**
+         * Maximum time expect() should wait for the condition to be met.
+         * For example in `await expect(locator).toHaveText();`
+         */
+        timeout: 10 * 1000,
+    },
     /* Run tests in files in parallel */
     fullyParallel: true,
     /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -29,18 +38,25 @@ export default defineConfig({
 
         /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
         trace: 'on-first-retry',
-        headless: false,
+        headless: true,
         screenshot: 'on',
     },
 
     /* Configure projects for major browsers */
     projects: [
         {
+            name: 'setup',
+            testMatch: /.*\.setup\.ts/,
+        },
+        {
             name: 'chromium',
             use: {
                 ...devices['Desktop Chrome'],
-                viewport: {width: 1500, height: 715}
+                viewport: {width: 1505, height: 715},
+                contextOptions: {storageState: '.auth/session.json'}
             },
+            /* Skip if .auth/ directory exists. */
+            //dependencies: ['setup']
         },
 
         /*{

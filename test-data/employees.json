@@ -1,0 +1,34 @@
+[
+  {
+    "key": 1,
+    "firstName": "Ana",
+    "middleName": "",
+    "lastName": "Gomez",
+    "id": "0377",
+    "createLogin": "No"
+  },
+  {
+    "key": 2,
+    "firstName": "Carlos",
+    "middleName": "",
+    "lastName": "Hernández Rojas",
+    "id": "0386",
+    "createLogin": "No"
+  },
+  {
+    "key": 3,
+    "firstName": "Juan",
+    "middleName": "Alberto",
+    "lastName": "Pérez",
+    "id": "0387",
+    "createLogin": "No"
+  },
+  {
+    "key": 4,
+    "firstName": "Maria",
+    "middleName": "José",
+    "lastName": "Hernández Rojas",
+    "id": "0388",
+    "createLogin": "Yes"
+  }
+]

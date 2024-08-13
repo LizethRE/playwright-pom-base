@@ -6,3 +6,6 @@ node_modules/
 
 ### Aqua IDEA ###
 .idea/
+
+### Base Authenticate###
+.auth/
