@@ -9,6 +9,8 @@ export class CommonPage {
     private readonly saveButton: Locator;
     private readonly searchResultsLabel: Locator;
     private readonly editButton: Locator;
+    private readonly deleteButton: Locator;
+    private readonly yesDeleteButton: Locator;
     private readonly toastMessageLabel: Locator;
 
     constructor(page: Page) {
@@ -20,6 +22,8 @@ export class CommonPage {
         this.saveButton = page.getByRole('button', {name: 'Save'});
         this.searchResultsLabel = page.getByText(') Record');
         this.editButton = page.locator(".bi-pencil-fill");
+        this.deleteButton = page.locator(".bi-trash");
+        this.yesDeleteButton = page.getByRole('button', {name: 'Yes, Delete'});
         this.toastMessageLabel = page.locator(".oxd-text--toast-message");
     }
 
@@ -57,6 +61,19 @@ export class CommonPage {
     async clickOnEdit() {
         await this.editButton.click();
         await this.page.waitForTimeout(1000);
+    }
+
+    async clickOnDelete() {
+        await this.deleteButton.click();
+    }
+
+    async clickOnYesDelete() {
+        await this.yesDeleteButton.click();
+    }
+
+    async deleteAndConfirm() {
+        await this.clickOnDelete();
+        await this.clickOnYesDelete();
     }
 
     async checkRecordsFound() {
