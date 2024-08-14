@@ -8,6 +8,7 @@ export class CommonPage {
     private readonly addButton: Locator;
     private readonly saveButton: Locator;
     private readonly searchResultsLabel: Locator;
+    private readonly editButton: Locator;
     private readonly toastMessageLabel: Locator;
 
     constructor(page: Page) {
@@ -18,6 +19,7 @@ export class CommonPage {
         this.addButton = page.getByRole('button', {name: ' Add'});
         this.saveButton = page.getByRole('button', {name: 'Save'});
         this.searchResultsLabel = page.getByText(') Record');
+        this.editButton = page.locator(".bi-pencil-fill");
         this.toastMessageLabel = page.locator(".oxd-text--toast-message");
     }
 
@@ -50,6 +52,11 @@ export class CommonPage {
     async searchById(employeeId: string) {
         await this.fillEmployeeId(employeeId);
         await this.clickOnSearch();
+    }
+
+    async clickOnEdit() {
+        await this.editButton.click();
+        await this.page.waitForTimeout(1000);
     }
 
     async checkRecordsFound() {
